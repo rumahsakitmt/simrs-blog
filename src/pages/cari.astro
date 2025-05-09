@@ -1,0 +1,24 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import MainContainer from "../layouts/MainContainer.astro";
+import SearchField from "@/components/SearchField.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <MainContainer>
+      <main class="py-6 h-screen space-y-6">
+        <SearchField
+          id="search"
+          className="pagefind-ui"
+          uiOptions={{ showImages: false }}
+        />
+      </main>
+    </MainContainer>
+  </body>
+</html>

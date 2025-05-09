@@ -2,18 +2,11 @@
 import "../styles/global.css";
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
-import { getCollection } from "astro:content";
 
 const formattedDate = () => {
   const date = new Date();
   return date.getFullYear();
 };
-
-const tags = [
-  ...new Set(
-    (await getCollection("blog")).map((post) => post.data.tags).flat()
-  ),
-].sort((a, b) => a.localeCompare(b));
 ---
 
 <header class="space-y-4">
@@ -33,17 +26,9 @@ const tags = [
     </div>
   </div>
   <nav class="p-2 font-mono border-y">
-    <div class="container mx-auto flex items-center justify-between gap-8">
-      <ul
-        class="flex uppercase gap-2 items-center justify-evenly md:justify-start w-full"
-      >
-        <HeaderLink href="/">Home</HeaderLink>
-        {
-          tags.map((tag) => (
-            <HeaderLink href={`/tags/${tag}`}>{tag}</HeaderLink>
-          ))
-        }
-      </ul>
+    <div class="container mx-auto flex items-center gap-8">
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/cari">Search</HeaderLink>
     </div>
   </nav>
 </header>
