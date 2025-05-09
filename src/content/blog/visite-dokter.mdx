@@ -1,0 +1,33 @@
+---
+title: "Visite Dokter untuk Dokter Pengganti"
+description: "Instruksi untuk membuat tagihan/tindakan rawat inap"
+pubDate: "May 09 2025"
+tags: ["simrs", "tutorial"]
+---
+
+import ImageMd from "../../components/ImageMd.astro";
+
+Cara untuk memasukkan tindakan untuk visite dokter yang tepat berdasarkan dokter yang mengganti dokter DPJP agar mempermudah kasir menghitung recap tagihan
+visite dokter.
+
+- Masuk menu `Rawat Inap` pada aplikasi SIMRS
+  <ImageMd
+    src="/blog/visite-dokter/vd-rawat-inap.png"
+    alt="Rawat Inap"
+    loading="eager"
+  />
+- Pilih pasien yang akan diisi tindakan
+- Klik kanan pada pasien lalu pilih `Tindakan & Pemeriksaan` => `Data Tagihan/Tindakan Rawat Inap`
+  <ImageMd src="/blog/visite-dokter/vd-popup.png" alt="Rawat Inap" />
+- Pada jendela `[Perawatan/Tindakan Rawat Inap]` klik tab `Penanganan Dokter & Petugas`
+  <ImageMd src="/blog/visite-dokter/vd-window-tab.png" alt="Rawat Inap" />
+- Pada kotak input `Tindakan/Tagihan` masukkan kode tindakan
+  <ImageMd src="/blog/visite-dokter/vd-window-1.png" alt="Rawat Inap" />
+- Pilih dokter yang mengganti dokter DPJP. _kode berisi nama dokter yang menngganti. Contoh: MT.0036.JAMAL untuk dr. Jamaluddin Madeali_
+  <ImageMd src="/blog/visite-dokter/vd-tindakan.png" alt="Rawat Inap" />
+  _catatan: pilih kode tanpa nama dokter untuk dokter DPJP_
+- Pilih `Simpan`
+- Jangan lupa ubah kotak input dokter sesuaikan dengan dokter yang mengganti dokter DPJP
+  <ImageMd src="/blog/visite-dokter/vd-kotak-dokter.png" alt="Rawat Inap" />
+- Pemilihan tindakan sesuai kode dokter yang mengganti akan mempermudah kasir menghitung recap tagihan.
+  <ImageMd src="/blog/visite-dokter/vd-kasir.png" alt="Rawat Inap" />
