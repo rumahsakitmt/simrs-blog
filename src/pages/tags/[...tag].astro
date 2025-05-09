@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import MainContainer from "../../layouts/MainContainer.astro";
+import BaseHead from "../../components/BaseHead.astro";
+import Article from "../../components/Article.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
+  return tags.map((tag) => {
+    const filteredPosts = posts.filter((post) => post.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={tag} description={tag} />
+  </head>
+  <body>
+    <MainContainer>
+      <main class="py-6 h-screen">
+        <ul class="space-y-4">
+          {posts.map((post) => <Article post={post} />)}
+        </ul>
+      </main>
+    </MainContainer>
+  </body>
+</html>
